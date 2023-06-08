@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request,jsonify
 import json
 from waitress import serve
+from flask_cors import CORS
 
 import pymongo
 
@@ -8,7 +9,7 @@ app = Flask(__name__)
 
 
 
-
+CORS(app)
 
 
 # MongoDB connection
