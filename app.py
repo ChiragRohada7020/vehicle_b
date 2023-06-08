@@ -2,7 +2,7 @@ from flask import Flask, render_template, request,jsonify
 import json
 from waitress import serve
 
-from pymongo import MongoClient
+import pymongo
 
 app = Flask(__name__)
 
@@ -12,8 +12,8 @@ app = Flask(__name__)
 
 
 # MongoDB connection
-client = MongoClient('mongodb://localhost:27017')
-db = client['Chirag']  # Replace 'your_database' with your actual database name
+client = pymongo.MongoClient("mongodb+srv://ChiragRohada:s54icYoW4045LhAW@atlascluster.t7vxr4g.mongodb.net/test")
+db = client['vehicle']  # Replace 'your_database' with your actual database name
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -29,7 +29,7 @@ def lo():
 @app.route('/search/<data>', methods=['GET', 'POST'])
 def Search(data):
     
-    mycol = db["chirag"]
+    mycol = db["VehicleData"]
     # mycol.create_index([('Sticker No', 'text')])
     
     results = mycol.find({'$text': {'$search': data}},{"_id":0}).limit(3)
