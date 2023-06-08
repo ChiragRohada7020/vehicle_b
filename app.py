@@ -6,8 +6,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# Sample data for dropdown options
-dropdown_options = ['Option 1', 'Option 2', 'Option 3']
+
 
 
 
@@ -19,14 +18,7 @@ db = client['Chirag']  # Replace 'your_database' with your actual database name
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        search_term = request.form['search']
-        # Perform search logic here
-        
-        # Render template with search results
-        return render_template('index.html', search_term=search_term)
-    else:
-        return render_template('index.html', dropdown_options=dropdown_options)
+    return "hello"
 
 
 @app.route('/Search/<data>', methods=['GET', 'POST'])
@@ -55,13 +47,7 @@ def Search(data):
     return json_data
 
 
-@app.route('/Research', methods=['GET', 'POST'])
-def R_Search(data):
-       
 
-    
-    data=["some random data ","date","id","vehilce_no","Vehicle_Name"]
-    return ["asd","Asd","As"]
    
 
 if __name__ == '__main__':
