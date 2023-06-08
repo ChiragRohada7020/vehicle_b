@@ -21,7 +21,12 @@ def index():
     return "hello"
 
 
-@app.route('/Search/<data>', methods=['GET', 'POST'])
+@app.route('/lo', methods=['GET', 'POST'])
+def lo():
+    return {"hello":"hello"}
+
+
+@app.route('/search/<data>', methods=['GET', 'POST'])
 def Search(data):
     
     mycol = db["chirag"]
