@@ -30,10 +30,10 @@ def lo():
 @app.route('/search/<data>', methods=['GET', 'POST'])
 def Search(data):
     
-    mycol = db["VehicleData"]
-    # mycol.create_index([('Sticker No', 'text')])
+    mycol = db["c"]
+    # mycol.create_index([('Vehicle No', 'text')])
     
-    results = mycol.find({'$text': {'$search': data}},{"_id":0}).limit(3)
+    results = mycol.find({'$text': {'$search': data}},{"_id":0}).limit(5)
     
 
     # mylist=[]
